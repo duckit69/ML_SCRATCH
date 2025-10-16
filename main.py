@@ -12,3 +12,8 @@ print(x_train.isnull().sum())
 # i will use Age + sex
 
 # 2- Clean/prepocess Data
+
+# for Age i will fill missing values with median 
+
+x_train = x_train[['Age', 'Sex']]
+print(x_train.head())
