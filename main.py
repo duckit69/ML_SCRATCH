@@ -19,3 +19,15 @@ x_train = x_train[['Age', 'Sex']]
 x_train['Age'] = x_train['Age'].fillna(x_train['Age'].median())
 # for sex use 1/0
 x_train['Sex'] = x_train['Sex'].map({'male' : 1, 'female' : 0})
+
+
+# 3- Standardize features
+# i want to make the age between 0-1 minMax (value - min) / (max - min)
+#, Sex is already 0/1
+
+def minMax(x, min, max):
+    return ((x - min) / (max - min))
+min_x = x_train['Age'].min()
+max_x = x_train['Age'].max()
+x_train['Age'] = x_train['Age'].apply(minMax, args=(min_x, max_x,)) 
+
