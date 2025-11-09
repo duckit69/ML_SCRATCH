@@ -31,3 +31,11 @@ min_x = x_train['Age'].min()
 max_x = x_train['Age'].max()
 x_train['Age'] = x_train['Age'].apply(minMax, args=(min_x, max_x,)) 
 
+
+# 4- tools used for logistic regression model
+
+#sigmoid 
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+print(sigmoid(0))
