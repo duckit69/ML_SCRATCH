@@ -38,4 +38,11 @@ x_train['Age'] = x_train['Age'].apply(minMax, args=(min_x, max_x,))
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
-print(sigmoid(0))
+# cost function
+def cost_funct(m, y_train, x_train, w, b):
+    z = x_train.dot(w) + b
+    left_part = y_train * np.log(sigmoid(z))
+    right_part = (1 - y_train) * np.log(1 - sigmoid(z))
+    full_part = -1 * np.sum(left_part + right_part) / m
+    return full_part
+
